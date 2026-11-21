@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reel to Reel · a theme for T3 Code</title>
+<meta name="description" content="A 1970s tape-deck theme for T3 Code. Walnut, brushed aluminium and amber VU meters. While your agent works the reels turn and the needles bounce; when it stops they settle.">
+<meta name="theme-color" content="#1b1511">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Reel to Reel · a theme for T3 Code">
+<meta property="og:description" content="Walnut, aluminium and amber VU meters. The reels turn while your agent works, then come to rest.">
+<meta property="og:url" content="{{SITE}}">
+<meta property="og:image" content="{{SITE}}assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{SITE}}assets/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232e1c10'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23d4cfc4' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%23ffb52e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#120d09; --vinyl:#1b1511; --panel:#241d18; --panel-2:#2c241e; --walnut:#2e1c10; --walnut-2:#43281a;
+  --cream:#f3e7cf; --muted:#cdbb98; --faint:#a2917a; --amber:#ffb52e; --amber-hi:#ffc85c; --amber-ink:#1b1206;
+  --alu:#d4cfc4; --alu-dk:#8f8a80; --line:#4f4032; --red:#ff5a36; --green:#8ed8a4;
+  --disp:"Josefin Sans",Futura,"Avenir Next",sans-serif;
+  --body:"Josefin Sans",Futura,"Avenir Next",ui-sans-serif,system-ui,sans-serif;
+  --serif:"Fraunces",ui-serif,Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --gutter:clamp(18px,4vw,56px); --maxw:1220px; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--cream);font:400 18px/1.6 var(--body);overflow-x:hidden;
+  background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(255,181,46,.10),transparent 70%),{{VINYL}} 0 0/200px 200px,var(--vinyl)}
+a{color:var(--amber-hi);text-underline-offset:3px;text-decoration-style:dotted}
+a:hover{color:var(--cream)}
+::selection{background:rgba(255,181,46,.34)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+img,video{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+.label{font:600 12px/1.2 var(--disp);letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.label b{color:var(--amber);font-weight:700}
+
+/* walnut cheeks, like the end panels of a deck */
+.cheek{position:fixed;top:0;bottom:0;width:clamp(10px,2.2vw,34px);z-index:30;pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.35),transparent 40%),{{WALNUT}} 0 0/360px 720px,#6a3f22}
+.cheek.l{left:0;box-shadow:inset -1px 0 0 rgba(255,214,160,.2),2px 0 14px rgba(0,0,0,.5)}
+.cheek.r{right:0;transform:scaleX(-1);box-shadow:inset -1px 0 0 rgba(255,214,160,.2),2px 0 14px rgba(0,0,0,.5)}
+
+/* top bar */
+header.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:26px 0 0}
+.mark{display:flex;align-items:center;gap:12px;font:700 14px/1 var(--disp);letter-spacing:.26em;text-transform:uppercase;color:var(--cream);text-decoration:none}
+.mark svg{width:28px;height:28px}
+.top nav{display:flex;gap:24px;align-items:center}
+.top nav a{font:600 12px/1 var(--disp);letter-spacing:.22em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.top nav a:hover{color:var(--cream)}
+.top nav .gh{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);padding:10px 14px;border-radius:8px;color:var(--cream);background:rgba(36,29,24,.7)}
+.top nav .gh:hover{border-color:var(--amber);color:var(--amber-hi)}
+.top nav .gh svg{width:15px;height:15px;fill:currentColor}
+@media (max-width:680px){.top nav a:not(.gh){display:none}}
+
+/* brushed aluminium faceplate used for bezels and bars */
+.alu{background:{{BRUSH}} 0 0/320px 80px,linear-gradient(180deg,#d9d5cb,#a9a59a 52%,#c6c2b7);color:#241d16}
+
+/* ---------- hero */
+.hero{padding:clamp(40px,8vh,84px) 0 0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(24px,5vw,64px);align-items:center}
+.wordmark{margin:14px 0 0;font:700 clamp(46px,7.6vw,104px)/.9 var(--disp);letter-spacing:.04em;text-transform:uppercase;color:var(--cream)}
+.wordmark span{display:block}
+.wordmark .to{font:italic 400 .42em/1 var(--serif);text-transform:none;letter-spacing:0;color:var(--amber);margin:.2em 0 .12em .2em}
+.lede{margin:26px 0 24px;font:400 clamp(18px,1.55vw,21px)/1.55 var(--body);color:var(--muted);max-width:34ch}
+.lede em{font:italic 600 1.04em var(--serif);color:var(--cream)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 13px/1 var(--disp);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:16px 22px;border-radius:9px;border:1px solid transparent;cursor:pointer;transition:transform .15s,background-color .15s,border-color .15s,color .15s}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:linear-gradient(180deg,#ffc85c,#f2a21b);color:var(--amber-ink);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 2px 0 #8a5a0c}
+.btn.primary:hover{background:linear-gradient(180deg,#ffd57e,#ffb52e);color:var(--amber-ink)}
+.btn.ghost{border-color:#6d655a;color:var(--cream);background:rgba(36,29,24,.7)}
+.btn.ghost:hover{border-color:var(--amber);color:var(--amber-hi)}
+.btn svg{width:15px;height:15px}
+.bezel{position:relative;border-radius:16px;padding:clamp(10px,1.4vw,18px);box-shadow:0 40px 80px -30px rgba(0,0,0,.85),0 0 0 1px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.7)}
+.bezel i{position:absolute;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f4f1e8,#85817a);box-shadow:0 0 0 1px rgba(0,0,0,.4)}
+.bezel i:nth-child(1){left:6px;top:6px}.bezel i:nth-child(2){right:6px;top:6px}.bezel i:nth-child(3){left:6px;bottom:6px}.bezel i:nth-child(4){right:6px;bottom:6px}
+.bezel video,.bezel .poster{width:100%;aspect-ratio:1600/818;border-radius:6px;background:#1b1511 url(assets/hero.jpg) center/cover;box-shadow:0 0 0 2px #14100c}
+.bezel .strip{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font:600 11px/1 var(--disp);letter-spacing:.3em;text-transform:uppercase;color:#3a352d;padding:0 6px}
+.bezel .strip .lamp{display:inline-flex;gap:8px;align-items:center}
+.bezel .strip span{white-space:nowrap}
+@media (max-width:520px){.bezel .strip{letter-spacing:.2em;font-size:10px}.bezel .strip span:last-child{display:none}}
+.bezel .strip .lamp:before{content:"";width:9px;height:9px;border-radius:50%;background:#ff5a36;box-shadow:0 0 8px #ff5a36}
+@media (min-width:901px){
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:clamp(28px,4vw,44px)}
+  .hero-grid>div:first-child{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"lab lab" "word lede" "word ctas";column-gap:clamp(32px,5vw,72px);align-items:end}
+  .hero-grid .label{grid-area:lab}.hero-grid .wordmark{grid-area:word;display:flex;align-items:baseline;gap:.28em;font-size:clamp(46px,6.4vw,92px)}
+  .hero-grid .wordmark .to{margin:0}.hero-grid .lede{grid-area:lede;margin:0;max-width:44ch;align-self:end}.hero-grid .ctas{grid-area:ctas;margin-top:22px}
+}
+@media (max-width:900px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.tape-line{margin:clamp(40px,7vh,72px) 0 0;height:6px;background:radial-gradient(circle at 50% 50%,var(--amber) 1.4px,transparent 1.9px) 0 0/12px 6px repeat-x;opacity:.7;animation:perf 1.4s steps(6) infinite}
+@keyframes perf{to{background-position:12px 0}}
+
+/* ---------- sections */
+section{padding:clamp(80px,13vh,140px) 0 0}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:10px 26px;align-items:end;margin-bottom:clamp(28px,5vh,48px)}
+.knob{width:clamp(54px,7vw,84px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 36% 28%,#f2efe6,#9c988d 62%,#6e6a61);box-shadow:0 6px 14px rgba(0,0,0,.6),inset 0 -3px 5px rgba(0,0,0,.35);position:relative;flex:none}
+.knob:after{content:"";position:absolute;left:50%;top:9%;width:3px;height:30%;border-radius:2px;background:#1b1206;transform:translateX(-50%) rotate(var(--k,-40deg));transform-origin:50% 150%}
+.sec-head h2{margin:6px 0 0;font:700 clamp(28px,3.6vw,46px)/1.05 var(--disp);letter-spacing:.06em;text-transform:uppercase}
+.sec-head p{grid-column:1/-1;margin:6px 0 0;color:var(--muted);max-width:62ch}
+@media (min-width:700px){.sec-head p{grid-column:2}}
+
+/* the deck widget uses the theme's own CSS */
+{{DECK_CSS}}
+.deck-wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(20px,4vw,48px);align-items:stretch}
+.deck{position:relative;border-radius:18px;padding:clamp(18px,3vw,36px);border:1px solid #120905;box-shadow:0 30px 70px -30px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,220,170,.18);
+  background:linear-gradient(90deg,rgba(0,0,0,.3),transparent 12%,transparent 88%,rgba(0,0,0,.34)),{{WALNUT}} 0 0/360px 720px,#6a3f22}
+.deck-face{border-radius:10px;background:{{BRUSH_DK}} 0 0/320px 80px,linear-gradient(180deg,#4c4842,#3a3631 55%,#302d29);border:1px solid #120d09;box-shadow:inset 0 1px 0 rgba(255,255,255,.14);padding:clamp(16px,2.4vw,28px);
+  display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(14px,2.4vw,30px);align-items:center}
+.deck-left{display:flex;flex-direction:column;gap:18px;align-items:center}
+.deck-reels{width:100%;max-width:440px}
+.deck-led{align-self:center}
+.deck-meters{width:100%;max-width:230px;justify-self:center}
+.deck-ctl{display:flex;align-items:center;gap:16px;margin-top:20px;flex-wrap:wrap}
+.play{display:inline-flex;align-items:center;gap:12px;border:0;border-radius:10px;padding:16px 24px;font:700 14px/1 var(--disp);letter-spacing:.24em;text-transform:uppercase;cursor:pointer;color:#241d16;
+  background:{{BRUSH}} 0 0/320px 80px,linear-gradient(180deg,#dcd8ce,#aaa69b);box-shadow:inset 0 1px 0 #fff,0 4px 0 #6f6a60,0 8px 14px rgba(0,0,0,.5);transition:transform .12s,box-shadow .12s}
+.play:active,.deck.on .play{transform:translateY(3px);box-shadow:inset 0 1px 0 #fff,0 1px 0 #6f6a60,0 2px 6px rgba(0,0,0,.5)}
+.play .dot{width:10px;height:10px;border-radius:50%;background:#5a2210;transition:background .2s,box-shadow .2s}
+.deck.on .play .dot{background:var(--red);box-shadow:0 0 10px var(--red)}
+.deck-ctl small{font:500 12px/1.4 var(--mono);color:#e7d9bd;letter-spacing:.04em;max-width:34ch}
+.legend{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:14px;background:rgba(36,29,24,.72);overflow:hidden}
+.legend div{padding:18px 22px;border-top:1px solid rgba(79,64,50,.7);transition:background .3s}
+.legend div:first-child{border-top:0}
+.legend b{display:block;font:700 13px/1.2 var(--disp);letter-spacing:.22em;text-transform:uppercase;color:var(--cream);margin-bottom:6px}
+.legend span{color:var(--muted);font-size:16.5px;line-height:1.5}
+.legend .rest{background:rgba(255,181,46,.07)}.legend .rest b{color:var(--amber)}
+.deck.on ~ .legend .rest{background:none}.deck.on ~ .legend .rest b{color:var(--cream)}
+.deck.on ~ .legend .run{background:rgba(255,181,46,.07)}.deck.on ~ .legend .run b{color:var(--amber)}
+@media (max-width:900px){.deck-wrap{grid-template-columns:minmax(0,1fr)}.deck-face{grid-template-columns:minmax(0,1fr)}.deck-meters{max-width:210px}}
+
+/* ---------- what moves */
+.moves{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.plate{position:relative;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,rgba(44,36,30,.9),rgba(30,24,20,.9));padding:24px 24px 26px}
+.plate .no{font:600 12px/1 var(--mono);letter-spacing:.14em;color:var(--amber);display:flex;justify-content:space-between;margin-bottom:14px}
+.plate .no span{color:var(--faint)}
+.plate h3{margin:0 0 8px;font:700 19px/1.2 var(--disp);letter-spacing:.1em;text-transform:uppercase}
+.plate p{margin:0;color:var(--muted);font-size:16.5px;line-height:1.55}
+.plate:before,.plate:after{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#d8d4ca,#6f6a60)}
+.plate:before{left:8px;top:8px}.plate:after{right:8px;top:8px}
+@media (max-width:980px){.moves{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.moves{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- demo */
+.demo .bezel video{aspect-ratio:1920/1080;width:100%;border-radius:6px;background:#120d09 url(assets/demo.jpg) center/cover}
+
+/* ---------- palette */
+.pal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
+.pal button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:44px 1fr auto;gap:16px;align-items:center;padding:12px 6px;border-bottom:1px solid rgba(79,64,50,.7);cursor:pointer;transition:background .15s}
+.pal button:hover,.pal button:focus-visible{background:rgba(255,181,46,.07)}
+.pal button:focus-visible{outline:2px solid var(--amber);outline-offset:-2px}
+.pal .sw{width:44px;height:30px;border-radius:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 1px 0 rgba(0,0,0,.5)}
+.pal .nm{font:600 13px/1.2 var(--disp);letter-spacing:.18em;text-transform:uppercase;color:var(--cream)}
+.pal .nm small{display:block;font:400 12px/1.3 var(--mono);letter-spacing:0;text-transform:none;color:var(--faint);margin-top:3px}
+.pal .hx{font:500 14px/1 var(--mono);color:var(--amber-hi);letter-spacing:.04em}
+.pal button.copied .hx{color:var(--green)}
+@media (max-width:760px){.pal{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- install */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.step{border:1px solid var(--line);border-radius:12px;background:rgba(36,29,24,.78);padding:24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.step h3{margin:0;font:700 17px/1.2 var(--disp);letter-spacing:.14em;text-transform:uppercase}
+.step h3 b{color:var(--amber);margin-right:10px;font-family:var(--mono);font-weight:600}
+.step p{margin:0;color:var(--muted);font-size:16.5px}
+.step .btn{align-self:flex-start;margin-top:auto}
+pre{margin:0;padding:14px 16px;background:#14100c;border:1px solid #3e3226;border-left:3px solid var(--alu-dk);border-radius:8px;overflow-x:auto;font:500 13px/1.6 var(--mono);color:#efe2c6;white-space:pre}
+.cli{grid-column:1/-1}
+.cli pre{white-space:pre-wrap;word-break:break-all}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,24px);opacity:0;background:var(--cream);color:#1d1710;font:600 13px/1 var(--disp);letter-spacing:.16em;text-transform:uppercase;padding:13px 18px;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.6);transition:opacity .2s,transform .2s;z-index:60;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (max-width:980px){.steps{grid-template-columns:minmax(0,1fr)}}
+
+footer{margin-top:clamp(80px,12vh,130px);padding:34px 0 60px;border-top:1px solid var(--line);color:var(--faint);font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
+
+.js .rise{opacity:0;transform:translateY(12px);transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rise.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .deck.on .deck-meters{--vu1:-30deg!important;--vu2:-37deg!important;--h1:1!important;--h2:1!important}
+  .deck.on .deck-led{--lvl:38%!important}
+  .deck-reels{--ra:20deg!important;--tp:0px!important}
+  .js .rise{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="cheek l"></div><div class="cheek r"></div>
+<div class="wrap">
+<header class="top">
+  <a class="mark" href="#top"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="#2e1c10" stroke="#d4cfc4" stroke-width="2.4"/><circle cx="16" cy="16" r="4" fill="#ffb52e"/><path d="M16 5.5v6M16 20.5v6M5.5 16h6M20.5 16h6" stroke="#d4cfc4" stroke-width="2.2" stroke-linecap="round" opacity=".0"/><path d="M16 12l0 0M11 21l3-4M21 21l-3-4M16 10v5" stroke="#d4cfc4" stroke-width="2" stroke-linecap="round"/></svg>Reel to Reel</a>
+  <nav><a href="#deck">Try the deck</a><a href="#moves">What moves</a><a href="#palette">Palette</a><a href="#install">Install</a>
+    <a class="gh" href="{{REPO}}"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></nav>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="label">A theme for T3 Code · <b>Model 1974</b></div>
+      <h1 class="wordmark"><span>Reel</span><span class="to">to</span><span>Reel</span></h1>
+      <p class="lede">Your agent runs the tape. <em>The meters tell you how hard.</em> Walnut, brushed aluminium and amber VU meters, all of it at rest until a turn begins.</p>
+      <div class="ctas"><a class="btn primary" href="#install">Install the theme</a><a class="btn ghost" href="#deck">Try the deck</a></div>
+    </div>
+    <div class="bezel alu rise"><i></i><i></i><i></i><i></i>
+      <video id="hero" class="poster" src="assets/hero.mp4" poster="assets/hero.jpg" autoplay muted loop playsinline preload="auto" aria-label="The Reel to Reel theme in T3 Code while an agent works: reels turning, VU needles bouncing, an LED ladder along the header"></video>
+      <div class="strip"><span class="lamp">Rec · working</span><span>T3 Code · Dark</span></div>
+    </div>
+  </div>
+  <div class="tape-line" aria-hidden="true"></div>
+</div>
+
+<section id="deck">
+  <div class="sec-head rise"><div class="knob" style="--k:-30deg"></div><div><div class="label">01 · The deck</div><h2>Start a turn</h2></div>
+    <p>This is the real theme CSS, running on the page. Press play to start a turn and watch the reels and meters take over; stop it and the needles fall to the stop.</p></div>
+  <div class="deck-wrap rise">
+    <div class="deck" id="deckbox">
+      <div class="deck-face">
+        <div class="deck-left"><div class="deck-reels" aria-hidden="true"></div><div class="deck-led" aria-hidden="true"></div></div>
+        <div class="deck-meters" aria-hidden="true"></div>
+      </div>
+      <div class="deck-ctl"><button class="play" id="play" aria-pressed="false"><span class="dot"></span><span id="playt">Play</span></button><small id="state">At rest. Idle is quiet.</small></div>
+    </div>
+    <div class="legend">
+      <div class="rest"><b>At rest</b><span>Reels parked. Needles resting on the 20 tick at the left stop. One LED lit on the ladder, like a pilot lamp.</span></div>
+      <div class="run"><b>Turn running</b><span>Two reels spin at different speeds and tape runs past the head. Both needles swing hard, then settle to a low sway. The REC lamp lights.</span></div>
+      <div><b>Turn complete</b><span>The needles fall to the stop and bounce off it, the REC lamp goes out and the ladder drops. The deck is quiet again.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="moves">
+  <div class="sec-head rise"><div class="knob" style="--k:20deg"></div><div><div class="label">02 · Specifications</div><h2>What moves, and why</h2></div>
+    <p>Every animation is tied to real app state. If nothing is running, nothing moves.</p></div>
+  <div class="moves">
+    <div class="plate rise"><div class="no">01<span>WORKING</span></div><h3>Twin reels</h3><p>Two reels sit in an aluminium deck plate in the left margin, a full supply pack and a smaller take-up. While a turn runs they turn at different speeds and tape runs past the head. They stop where they are.</p></div>
+    <div class="plate rise"><div class="no">02<span>WORKING</span></div><h3>VU meters</h3><p>Two amber meters in the right margin. For the first seven seconds of a turn the needles swing hard, then they drop to a low, slow sway so a long turn never nags at the corner of your eye. A REC lamp stays lit throughout.</p></div>
+    <div class="plate rise"><div class="no">03<span>DONE</span></div><h3>Thump and settle</h3><p>When the turn ends the needles fall to the stop and bounce off it, the REC lamp goes out and the ladder drops back to its pilot LED. It only plays when a turn actually ends.</p></div>
+    <div class="plate rise"><div class="no">04<span>WORKING</span></div><h3>LED ladder</h3><p>The header is a brushed aluminium faceplate. A 16-segment amber ladder climbs with the opening burst, then settles to a low level. At rest, one pilot LED.</p></div>
+    <div class="plate rise"><div class="no">05<span>BACKGROUND</span></div><h3>Busy threads</h3><p>A busy thread in the sidebar gets a tape stripe that steps down its edge. If only a background thread is running, just the right meter stirs.</p></div>
+    <div class="plate rise"><div class="no">06<span>WORKING</span></div><h3>Sprocket row</h3><p>The live <em>Working…</em> row runs a line of sprocket holes along its foot, stepping like film in a gate.</p></div>
+    <div class="plate rise"><div class="no">07<span>FOCUS</span></div><h3>Composer bezel</h3><p>The message box is a recessed slot in an aluminium bezel. Focus it and the bezel lights amber.</p></div>
+    <div class="plate rise"><div class="no">08<span>NARROW</span></div><h3>Docked deck</h3><p>No room beside the chat? A small dock with mini reels and meters sits under Settings at the foot of the sidebar, in flow, so it can never sit behind a thread title.</p></div>
+    <div class="plate rise"><div class="no">09<span>REDUCED MOTION</span></div><h3>A good still</h3><p>With reduced motion on, the reels stand still and the needles hold a low mid-scale pose. Nothing animates.</p></div>
+  </div>
+</section>
+
+<section id="demo" class="demo">
+  <div class="sec-head rise"><div class="knob" style="--k:50deg"></div><div><div class="label">03 · Playback</div><h2>The full walkthrough</h2></div>
+    <p>About a minute: at rest, compose, a turn, a background thread, done, hover, and the narrow window.</p></div>
+  <div class="bezel alu rise"><i></i><i></i><i></i><i></i>
+    <video id="demo" src="assets/demo.mp4" poster="assets/demo.jpg" controls playsinline preload="none" aria-label="Captioned walkthrough of the Reel to Reel theme"></video>
+    <div class="strip"><span class="lamp">Walkthrough</span><span>Captioned</span></div>
+  </div>
+</section>
+
+<section id="palette">
+  <div class="sec-head rise"><div class="knob" style="--k:-60deg"></div><div><div class="label">04 · Finish</div><h2>Palette</h2></div>
+    <p>Walnut and vinyl for the dark, aluminium for the metal, and one amber for everything that needs you. Click a row to copy its hex.</p></div>
+  <div class="pal rise">
+{{PALETTE_ROWS}}
+  </div>
+</section>
+
+<section id="install">
+  <div class="sec-head rise"><div class="knob" style="--k:36deg"></div><div><div class="label">05 · Setup</div><h2>Install</h2></div>
+    <p>One JSON file. Paste it into T3 Code, or set it from the terminal.</p></div>
+  <div class="steps rise">
+    <div class="step"><h3><b>01</b>Copy the JSON</h3><p>Copy the theme, then in T3 Code open <em>Settings › Appearance › Add theme</em> and paste.</p><button class="btn primary" id="copyjson" type="button">Copy theme JSON</button></div>
+    <div class="step"><h3><b>02</b>Or download it</h3><p>Save <code>{{SLUG}}.json</code> and choose it in <em>Add theme</em>.</p><a class="btn ghost" href="{{SLUG}}.json" download>Download {{SLUG}}.json</a></div>
+    <div class="step"><h3><b>03</b>Or use the CLI</h3><p>Fetch the file and set it as the environment theme. Every connected client switches.</p><button class="btn ghost" id="copycli" type="button">Copy commands</button></div>
+    <div class="step cli"><pre id="clitext">curl -fsSL -o {{SLUG}}.json {{SITE}}{{SLUG}}.json
+~/.t3/bin/t3 theme set {{SLUG}}.json</pre></div>
+  </div>
+</section>
+</main>
+</div>
+<footer><div class="wrap"><span>Reel to Reel is a community theme and is not affiliated with or endorsed by T3 Code or its makers.</span><span><a href="{{REPO}}">Source on GitHub</a> · MIT licence</span></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var toast=document.getElementById('toast'),tt;
+  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},1800)}
+  function copy(text){
+    if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(text);
+    return new Promise(function(res,rej){var t=document.createElement('textarea');t.value=text;t.style.cssText='position:fixed;opacity:0';document.body.appendChild(t);t.select();try{document.execCommand('copy')?res():rej()}catch(e){rej(e)}t.remove()});
+  }
+  document.querySelectorAll('.pal button').forEach(function(b){b.addEventListener('click',function(){
+    copy(b.dataset.hex).then(function(){say('Copied '+b.dataset.hex);b.classList.add('copied');setTimeout(function(){b.classList.remove('copied')},1200)},function(){say(b.dataset.hex)})})});
+  // Prefetch the theme on load so the click handler can write to the clipboard inside the user gesture (Safari needs this).
+  var themeP=fetch('{{SLUG}}.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error('http '+r.status);return r.text()});
+  themeP.catch(function(){});
+  document.getElementById('copyjson').addEventListener('click',function(){
+    var ok=function(){say('Theme JSON copied')},bad=function(){say('Could not copy. Use Download.')};
+    if(window.ClipboardItem&&navigator.clipboard&&navigator.clipboard.write&&window.isSecureContext){
+      navigator.clipboard.write([new ClipboardItem({'text/plain':themeP.then(function(t){return new Blob([t],{type:'text/plain'})})})]).then(ok,function(){themeP.then(copy).then(ok,bad)});
+    }else{themeP.then(copy).then(ok,bad)}});
+  document.getElementById('copycli').addEventListener('click',function(){
+    copy(document.getElementById('clitext').textContent).then(function(){say('Commands copied')},function(){say('Select and copy the text')})});
+  // deck widget
+  var deck=document.getElementById('deckbox'),play=document.getElementById('play');
+  play.addEventListener('click',function(){
+    var on=!deck.classList.contains('on');deck.classList.toggle('on',on);play.setAttribute('aria-pressed',on);
+    document.getElementById('playt').textContent=on?'Stop':'Play';
+    document.getElementById('state').textContent=on?'A turn is running. Everything is moving.':'Turn complete. The needles settle.';
+  });
+  // media: respect reduced motion
+  var hero=document.getElementById('hero');
+  if(reduce&&hero){hero.removeAttribute('autoplay');hero.pause();hero.controls=true}
+  // reveal on scroll
+  var els=document.querySelectorAll('.rise');
+  if('IntersectionObserver' in window&&!reduce){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});els.forEach(function(e){io.observe(e)});
+    setTimeout(function(){els.forEach(function(e){e.classList.add('in')})},2500)}else els.forEach(function(e){e.classList.add('in')});
+})();
+</script>
+</body>
+</html>
